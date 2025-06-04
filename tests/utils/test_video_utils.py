@@ -291,14 +291,20 @@ class LoadVideoTester(unittest.TestCase):
         video, metadata = load_video(video_file_path, backend="decord")
         self.assertEqual(video.shape, (243, 360, 640, 3))
         self.assertIsInstance(metadata, VideoMetadata)
+        self.assertEqual(metadata.total_num_frames, 243)
+        self.assertEqual(metadata.video_backend, "decord")
 
         video, metadata = load_video(video_file_path, backend="opencv")
         self.assertEqual(video.shape, (243, 360, 640, 3))
         self.assertIsInstance(metadata, VideoMetadata)
+        self.assertEqual(metadata.total_num_frames, 243)
+        self.assertEqual(metadata.video_backend, "opencv")
 
         video, metadata = load_video(video_file_path, backend="torchvision")
         self.assertEqual(video.shape, (243, 360, 640, 3))
         self.assertIsInstance(metadata, VideoMetadata)
+        self.assertEqual(metadata.total_num_frames, 243)
+        self.assertEqual(metadata.video_backend, "torchvision")
 
     def test_load_video_num_frames(self):
         video, _ = load_video(
