@@ -261,7 +261,7 @@ def compute_input_and_target_lengths(inputs_length, noise_density, mean_noise_sp
 
     Training parameters to avoid padding with random_spans_noise_mask.
     When training a model with random_spans_noise_mask, we would like to set the other
-    training hyperparmeters in a way that avoids padding.
+    training hyperparameters in a way that avoids padding.
     This function helps us compute these hyperparameters.
     We assume that each noise span in the input is replaced by extra_tokens_per_span_inputs sentinel tokens,
     and each non-noise span in the targets is replaced by extra_tokens_per_span_targets sentinel tokens.

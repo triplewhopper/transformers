@@ -447,7 +447,7 @@ class BitsAndBytesConfig(QuantizationConfigMixin):
             This flag is used for nested quantization where the quantization constants from the first quantization are
             quantized again.
         bnb_4bit_quant_storage (`torch.dtype` or str, *optional*, defaults to `torch.uint8`):
-            This sets the storage type to pack the quanitzed 4-bit prarams.
+            This sets the storage type to pack the quantized 4-bit params.
         kwargs (`Dict[str, Any]`, *optional*):
             Additional parameters from which to initialize the configuration object.
     """

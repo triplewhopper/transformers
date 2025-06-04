@@ -414,9 +414,9 @@ def main():
         model = AutoModelForMaskedLM.from_config(config, trust_remote_code=args.trust_remote_code)
 
     # We resize the embeddings only when necessary to avoid index errors. If you are creating a model from scratch
-    # on a small vocab and want a smaller embedding size, remove this test.
-    embedding_size = model.get_input_embeddings().weight.shape[0]
-    if len(tokenizer) > embedding_size:
+    # on a small vocab and want a smaller embedding dimension, remove this check.
+    model_vocab_size = model.get_input_embeddings().weight.shape[0]
+    if len(tokenizer) > model_vocab_size:
         model.resize_token_embeddings(len(tokenizer))
 
     # Preprocessing the datasets.
